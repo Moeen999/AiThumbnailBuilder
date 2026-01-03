@@ -10,7 +10,7 @@ export default function FeaturesSection() {
     <div id="features" className="px-4 md:px-16 lg:px-24 xl:px-32">
       <SectionTitle
         text1="Features"
-        text2="Why user our generator?"
+        text2="Why use our generator?"
         text3="Create stunning thumbnails that get clicks, without the hassle."
       />
       <div className="flex flex-wrap items-center justify-center gap-6 md:gap-4 mt-16 px-6">
@@ -54,7 +54,7 @@ export default function FeaturesSection() {
           viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
         >
-          Our AI understands what makes a video viral and designs thumbnails accordingly.
+          Our AI understands what makes a video go viral and designs thumbnails accordingly.
         </motion.p>
         <div className="grid grid-cols-1 md:grid-cols-3 mt-8 gap-10">
           <motion.div
