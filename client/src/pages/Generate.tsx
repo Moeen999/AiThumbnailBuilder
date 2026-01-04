@@ -4,6 +4,7 @@ import { colorSchemes, type AspectRatio, type IThumbnail, type ThumbnailStyle } 
 import SoftBackground from "../components/SoftBackground";
 import AspectRatioSelector from "../components/AspectRatioSelector";
 import StyleSelector from "../components/StyleSelector";
+import ColorSchemeSelector from "../components/ColorSchemeSelector";
 
 const Generate = () => {
   const { id } = useParams();
@@ -60,7 +61,7 @@ const Generate = () => {
                   {/* Style Selector */}
                   <StyleSelector value={style} onChange={setStyle} isOpen={styleDropdownOpen} setIsOpen={setStyleDropdownOpen}/>
                   {/* ColorSchemeSelector */}
-
+                  <ColorSchemeSelector value={colorSchemeId} onChange={setColorSchemeId}/>
                   {/* Details */}
                   <div className="space-y-2">
                     <label className="block text-sm font-medium">
