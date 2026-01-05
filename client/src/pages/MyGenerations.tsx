@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import SoftBackground from "../components/SoftBackground";
 import { dummyThumbnails, type IThumbnail } from "../assets/assets";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowUpRightIcon, DownloadIcon, TrashIcon } from "lucide-react";
 
 const MyGenerations = () => {
   const [thumbnails, setThumbnails] = useState<IThumbnail[]>([]);
@@ -97,6 +98,40 @@ const MyGenerations = () => {
                         Generating...
                       </div>
                     )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4 space-y-2">
+                    <h3 className="text-sm font-semibold text-zinc-100 line-clamp-2">
+                      {thumbnail.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-2 text-xs text-zinc-400 ">
+                      <span
+                        className={`px-2 py-0.5 rounded bg-white/8 ${thumbnail.style}`}
+                      >
+                        {thumbnail.style}
+                      </span>
+                      <span
+                        className={`px-2 py-0.5 rounded bg-white/8 ${thumbnail.style}`}
+                      >
+                        {thumbnail.color_scheme}
+                      </span>
+                      <span
+                        className={`px-2 py-0.5 rounded bg-white/8 ${thumbnail.style}`}
+                      >
+                        {thumbnail.aspect_ratio}
+                      </span>
+                    </div>
+                    <p className="text-xs text-zinc-500">
+                      {new Date(thumbnail.createdAt!).toDateString()}
+                    </p>
+                  </div>
+                  <div onClick={(e)=>e.stopPropagation()} className="absolute bottom-2 right-2 max-sm:flex sm:hidden group-hover:flex gap-1.5">
+                    <TrashIcon onClick={()=>handleDel(thumbnail._id)} className="size-6 bg-black/50 p-1 rounded hover:bg-pink-600 transition-all" />
+                    <DownloadIcon onClick={()=>handleDownload(thumbnail.image_url!)} className="size-6 bg-black/50 p-1 rounded hover:bg-pink-600 transition-all" />
+                      <Link target="_blank" to={`/preview?thumbnail_url=${thumbnail.image_url}&title=${thumbnail.title}`}>
+                    <ArrowUpRightIcon  className="size-6 bg-black/50 p-1 rounded hover:bg-pink-600 transition-all" />
+                      </Link>
                   </div>
                 </div>
               );
