@@ -25,7 +25,6 @@ export default function TiltedImage({ rotateAmplitude = 3 }) {
     if (!ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();
-    console.log(rect);
     const offsetX = e.clientX - rect.left - rect.width / 2;
     const offsetY = e.clientY - rect.top - rect.height / 2;
 

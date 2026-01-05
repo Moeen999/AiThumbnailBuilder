@@ -5,7 +5,6 @@ const YtPreview = () => {
   const [searchParams] = useSearchParams();
   const thumbnail_url = searchParams.get("thumbnail_url");
   const title = searchParams.get("title");
-  console.log(thumbnail_url, title);
   const new_html = yt_html
     .replace("%%THUMBNAIL_URL%%", thumbnail_url!)
     .replace("%%TITLE%%", title!);

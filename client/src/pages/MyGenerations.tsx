@@ -25,7 +25,6 @@ const MyGenerations = () => {
   };
 
   const handleDel = (id: string) => {
-    console.log(id);
   };
 
   useEffect(() => {
