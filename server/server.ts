@@ -4,7 +4,9 @@ import "dotenv/config"
 import { connectDB } from './config/db.js';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
-import AuthRouter from './routes/authRoutes.js';
+import AuthRouter from './routes/AuthRoutes.js';
+import ThumbnailRouter from './routes/ThumbnailRoutes.js';
+import UserRouter from './routes/UserRoutes.js';
 declare module "express-session" {
     interface SessionData {
         isLoggedIn: boolean,
@@ -37,7 +39,9 @@ app.use(session({
 app.use(express.json());
 
 //! AuthRoutes
-app.use("/api/auth",AuthRouter);
+app.use("/api/auth", AuthRouter);
+app.use("/api/thumbnail", ThumbnailRouter);
+app.use("/api/user", UserRouter);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello!');
