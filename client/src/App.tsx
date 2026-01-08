@@ -12,13 +12,13 @@ import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 
 export default function App() {
-  const {pathname} = useLocation();
-  useEffect(()=>{
-    window.scrollTo(0,0);
-  },[pathname])
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <>
-       <Toaster />
+      <Toaster />
       <LenisScroll />
       <Navbar />
       <Routes>

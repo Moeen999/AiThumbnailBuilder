@@ -1,9 +1,12 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import React from "react";
 import SoftBackground from "./SoftBackground";
+import { userAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const {signup,login,user} = userAuth()
   const [state, setState] = useState("login");
-
+  const navigate= useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,9 +18,20 @@ const Login = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if(state === "register"){
+       signup(formData);
+    }else{
+      login(formData);
+    }
   };
+
+  useEffect(()=>{
+    if(user){
+      navigate("/");
+    }
+  },[user])
 
   return (
     <>
